@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const TopNavigation = () => {
+const TopHeader = () => {
   return (
     <div className="container-fluid">
           <div className="row bg-secondary py-2 px-xl-5">
@@ -52,4 +52,4 @@ const TopNavigation = () => {
   );
 };
 
-export default TopNavigation;
+export default TopHeader;
