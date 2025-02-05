@@ -11,7 +11,7 @@ const CategoryMenu = () => {
     axios
     .get(AppURL.AllCategoryDetails)
     .then((response) => {
-        console.log(response.data);
+        //console.log(response.data);
         setMenuData(response.data);
     })
     .catch((error) => {

@@ -1,11 +1,12 @@
 import TopHeader from "./components/common/TopHeader";
 import Footer from "./components/common/Footer";
 import Navigation from "./components/homepage/Navigation";
+import Products from "./components/common/Products";
 import { useParams } from "react-router-dom";
 
 const ShopByCategory = () => {
     let { categoryid } = useParams();
-    console.log(categoryid);
+    //console.log(categoryid);
 
     return (
         <>
