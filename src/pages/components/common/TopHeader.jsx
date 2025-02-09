@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ProductSearch from './ProductSearch';
 
 const TopHeader = () => {
   return (
@@ -39,7 +40,7 @@ const TopHeader = () => {
                 <h1 className="m-0 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
               </Link>
             </div>
-
+            <ProductSearch />
             <div className="col-lg-3 col-6 text-right">
               <a href className="btn border">
                 <i className="fas fa-heart text-primary" />

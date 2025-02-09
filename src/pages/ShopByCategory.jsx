@@ -1,20 +1,27 @@
 import TopHeader from "./components/common/TopHeader";
+import CategoryMenu from "./components/common/CategoryMenu";
+import PageHeader from "./components/common/PageHeader";
+import TopMenu from "./components/common/TopMenu";
 import Footer from "./components/common/Footer";
-import Navigation from "./components/homepage/Navigation";
-import Products from "./components/common/Products";
+import Products from './components/common/Products';
 import { useParams } from "react-router-dom";
 
 const ShopByCategory = () => {
     let { categoryid } = useParams();
-    //console.log(categoryid);
 
     return (
         <>
-        <TopHeader />
-        <Navigation />
-        <Products categoryId = {categoryid} />
-        <Footer />
-      </>
+            <TopHeader />
+			<div className="container-fluid mb-5">
+				<div className="row border-top px-xl-5">
+                    <CategoryMenu />
+                    <TopMenu />
+				</div>
+			</div>
+			<PageHeader />
+			<Products categoryId={categoryid} />
+			<Footer />
+        </>
     );
 };
 
