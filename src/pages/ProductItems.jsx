@@ -6,10 +6,10 @@ import axios from "axios";
 const ProductItems = ({ productId }) => {
     const [ProductDetails, setProductDetails] = useState([]);
     const [featureImage, setFeatureImage] = useState([]);
-	const [galleryImages, setGalleryImages] = useState([]);
+	  const [galleryImages, setGalleryImages] = useState([]);
 
     const main_image_path = AppURL.productImagePath+productId+'/original/';
-	const gallery_image_path = AppURL.productImagePath+productId+'/gallery_images/';
+	  const gallery_image_path = AppURL.productImagePath+productId+'/gallery_images/';
 
 
     const [activeTab, setActiveTab] = useState(1); // State to manage the active tab
@@ -48,13 +48,16 @@ const ProductItems = ({ productId }) => {
         .get(AppURL.getProductsById(productId))
         .then((response) => {
             console.log(response.data);
-            setProductDetails(response.data);
+            setProductDetails(response.data.product_details);
 
             const featuresImage = response.data.product_details.product_images && response.data.product_details.product_images.feature_image;
-		    setFeatureImage(featuresImage);
+		        setFeatureImage(featuresImage);
 
             const imageArrayJSON  = response.data.product_details.product_images && response.data.product_details.product_images.gallery_images;
-		    setGalleryImages(JSON.parse(imageArrayJSON));
+		        setGalleryImages(JSON.parse(imageArrayJSON));
+
+          setSizeData(response.data.size_data);
+          setColorData(response.data.color_data);
 
         })
         .catch((error) => {
@@ -65,7 +68,7 @@ const ProductItems = ({ productId }) => {
     return (
         <div className="container-fluid pt-5">
 	        <div className="row px-xl-5 pb-3">
-	    		<div className="col-lg-5 pb-5">
+	    		  <div className="col-lg-5 pb-5">
                     <div id="product-carousel" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner border">
                             <div className="carousel-item active">
