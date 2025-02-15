@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ProductSearch from './ProductSearch';
 import CartIcon from "./cart-icon/cart-icon.component";
 import CartDropdown from "./cart-dropdown/cart-dropdown.component";
-import { CartContext } from "../context/cart.context";
+import { CartContext } from "../contexts/cart.context";
 
 const TopHeader = () => {
 

@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import AppURL from "../api/AppURL";
 import axios from "axios";
-
+import { CartContext } from "./components/contexts/cart.context";
 
 const ProductItems = ({ productId }) => {
+
     const [ProductDetails, setProductDetails] = useState([]);
     const [featureImage, setFeatureImage] = useState([]);
 	  const [galleryImages, setGalleryImages] = useState([]);
@@ -11,6 +12,7 @@ const ProductItems = ({ productId }) => {
     const main_image_path = AppURL.productImagePath+productId+'/original/';
 	  const gallery_image_path = AppURL.productImagePath+productId+'/gallery_images/';
 
+    const { addItemToCart } = useContext(CartContext);
 
     const [activeTab, setActiveTab] = useState(1); // State to manage the active tab
 
@@ -33,6 +35,8 @@ const ProductItems = ({ productId }) => {
     const handleColorChange = (event) => {
         setSelectedColor(event.target.value);
     };
+
+    const addProductToCart = () => addItemToCart(ProductDetails);
 
     const handleIncrement = () => {
       setQuantity(quantity + 1);
@@ -157,7 +161,7 @@ const ProductItems = ({ productId }) => {
 		              </button>
 		            </div>
 		          </div>
-		          <button className="btn btn-primary px-3"><i className="fa fa-shopping-cart mr-1" /> Add To Cart</button>
+		          <button className="btn btn-primary px-3" onClick={addProductToCart}><i className="fa fa-shopping-cart mr-1" /> Add To Cart</button>
 		        </div>
 		        <div className="d-flex pt-2">
 		          <p className="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
