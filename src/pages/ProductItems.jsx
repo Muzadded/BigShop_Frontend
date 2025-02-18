@@ -36,7 +36,11 @@ const ProductItems = ({ productId }) => {
         setSelectedColor(event.target.value);
     };
 
-    const addProductToCart = () => addItemToCart(ProductDetails);
+    const addProductToCart = () => {
+      const productWithQuantity = { ...ProductDetails, quantity };
+      addItemToCart(productWithQuantity);
+    }
+
 
     const handleIncrement = () => {
       setQuantity(quantity + 1);
@@ -51,7 +55,7 @@ const ProductItems = ({ productId }) => {
         axios
         .get(AppURL.getProductsById(productId))
         .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
             setProductDetails(response.data.product_details);
 
             const featuresImage = response.data.product_details.product_images && response.data.product_details.product_images.feature_image;
