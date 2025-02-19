@@ -16,8 +16,14 @@ const AppURL = {
 
     productImagePath: "http://127.0.0.1:8000/uploads/products/",
 
+    sslCommerzPayment: "http://127.0.0.1:8000/api/pay-via-ajax/",
+
     getProductsById: (pid) => 
         `http://127.0.0.1:8000/api/getProductsById/${pid}`,
+
+    GET_ALL_ORDERS:"http://127.0.0.1:8000/api/orders",
+    GET_ORDER_BY_ID: "http://127.0.0.1:8000/api/orders/{id}",  //  will append order ID to this in the frontend
+    GET_LATEST_ORDER:"http://127.0.0.1:8000/api/orders/latest",
 };
 
 export default AppURL;

@@ -19,6 +19,7 @@ const CheckoutDetails = (props) => {
   const [zipcode, setZipcode] = useState("");
   const [create_account, setAccount] = useState("");
   const [submitFlag, setSubmitFlag] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("");  // To track selected payment method
 
 
   // Handle form submission
@@ -39,6 +40,9 @@ const CheckoutDetails = (props) => {
       cartItems.length > 0 &&
       cartTotal > 0
     ) {
+      // Get selected payment method
+      const selectedPaymentMethod = document.querySelector('input[name="payment"]:checked')?.id;
+      setPaymentMethod(selectedPaymentMethod); // Update state with selected method
       setSubmitFlag(true);  // Trigger the API call
     } else {
       console.error('Please fill in all the required fields.');
@@ -50,7 +54,7 @@ const CheckoutDetails = (props) => {
       const submitOrderDetails = async () => {
         try {
           // Common order data
-          const response = await axios.post(AppURL.submitOrderDetails, {
+          const orderData = {
             firstname,
             lastname,
             email,
@@ -64,11 +68,29 @@ const CheckoutDetails = (props) => {
             create_account,
             cartItems,
             cartTotal,
-          });
+          };
 
-          console.log(response.data)
-          const responseData = response.data;
-          
+ // If SSLCommerz is selected, initiate payment gateway call
+          if (paymentMethod === "sslcommerce") {
+            // Call the SSLCommerz API to initiate payment
+            const response = await axios.post(AppURL.sslCommerzPayment, orderData);  // Assume this is the endpoint
+            const sslCommerzData = response.data;
+            const paymentLink = sslCommerzData.result.GatewayPageURL;;
+
+            if (paymentLink) {
+              // Redirect to the SSLCommerz payment page
+              console.log('SSLCOMMERCZ ACTIVATED');
+              window.location.href = paymentLink;
+            } else {
+              console.error('Failed to retrieve payment link.');
+            }
+          } 
+          // If Cash On Delivery (COD) is selected, submit the order
+          else if (paymentMethod === "banktransfer") {
+            const response = await axios.post(AppURL.submitOrderDetails, orderData);
+            //console.log(response.data);
+
+            const responseData = response.data; 
 
             if (props.history) {
               props.history.push({
@@ -78,6 +100,10 @@ const CheckoutDetails = (props) => {
             } else {
               console.error('Props.history is undefined');
             }
+          } else {
+            console.error('No payment method selected');
+          }
+          
         } catch (err) {
           console.error('Error submitting order details:', err);
         }
@@ -86,7 +112,7 @@ const CheckoutDetails = (props) => {
       submitOrderDetails();
       setSubmitFlag(false);  // Reset the submit flag after submission
     }
-  }, [submitFlag]);
+  }, [submitFlag, paymentMethod]);
 
     return (
         <form>
