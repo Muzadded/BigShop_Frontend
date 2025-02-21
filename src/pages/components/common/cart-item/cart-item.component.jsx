@@ -1,4 +1,4 @@
-import './cart-item.style.css';
+import './cart-item.style.css'
 import AppURL from '../../../../api/AppURL';
 
 

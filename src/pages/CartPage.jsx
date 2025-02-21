@@ -1,7 +1,7 @@
 import TopHeader from "./components/common/TopHeader";
 import CategoryMenu from "./components/common/CategoryMenu";
 import PageHeader from "./components/common/PageHeader";
-import TopMenu from "./components/common/TopMenu";
+import TopMenu from "./components/common/Topmenu";
 import Footer from "./components/common/Footer";
 import CartItemDetails from "./components/cart-item-details/cart-item-details.component";
 

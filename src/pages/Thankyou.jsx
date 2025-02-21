@@ -1,6 +1,6 @@
 import TopHeader from "./components/common/TopHeader";
 
-import Topmenu from "./components/common/Topmenu";
+import TopMenu from "./components/common/TopMenu";
 import Footer from "./components/common/Footer";
 
 import Paymentdetails from "./components/common/paymentdetails";
@@ -10,7 +10,7 @@ export default function Thankyou() {
       <TopHeader />
       <div className="container-fluid mb-10">
         <div className="row border-top px-xl-5">
-          <Topmenu />
+          <TopMenu />
         </div>
       </div>
 

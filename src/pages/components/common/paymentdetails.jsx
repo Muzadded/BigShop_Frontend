@@ -29,12 +29,7 @@ const PaymentDetails = () => {
 
     fetchLatestOrder();
   }, []);
-
-  const generatePDF = () => {
-    if (!order) return;
-
-  };
-
+  
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen text-gray-600">

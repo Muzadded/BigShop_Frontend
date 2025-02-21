@@ -338,7 +338,7 @@ const ProductItems = ({ productId }) => {
           </div>
         </div>
       </div>
-    </div>                                
+    </div>
 
 
   	</div>

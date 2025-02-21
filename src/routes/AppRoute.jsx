@@ -15,6 +15,7 @@ const AppRoute = () =>{
             <Route path="/cartPage" element = {<CartPage />} />
             <Route path="/checkoutPage" element = {<CheckoutPage />} />
             <Route path="/thankyou" element = {<Thankyou />} />
+            <Route path="/thank" element = {<Thankyou />} />
         </Routes>
     )
 }

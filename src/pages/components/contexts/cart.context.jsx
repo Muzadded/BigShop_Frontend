@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 
 
-const  addCartItem= (cartItems, productToAdd) =>{
+const addCartItem= (cartItems, productToAdd) =>{
     console.log(productToAdd);
 
 

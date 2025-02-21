@@ -1,4 +1,4 @@
-import TopMenu from "../common/TopMenu";
+import TopMenu from "../common/Topmenu";
 import Slider from "./Slider";
 import FeaturedItems from "./FeaturedItems";
 import CategoryMenu from "../common/CategoryMenu"; // Assuming it's being imported too
