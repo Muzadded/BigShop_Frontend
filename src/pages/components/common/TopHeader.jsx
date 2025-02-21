@@ -44,7 +44,7 @@ const TopHeader = () => {
           <div className="row align-items-center py-3 px-xl-5">
             <div className="col-lg-3 d-none d-lg-block">
               <Link className="text-decoration-none" to="/">
-                <h1 className="m-0 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                <h1 className="m-0 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border px-3 mr-1">BB</span>BoroBazar</h1>
               </Link>
             </div>
             <ProductSearch />

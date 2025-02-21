@@ -26,14 +26,14 @@ const CategoryMenu = () => {
             <i className="fa fa-angle-down text-dark"></i>
         </a>
         <nav className="position-absolute collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical" style={{width: 'calc(100% - 30px)', zIndex: 1}}>
-            <div className="navbar-nav w-100 overflow-hidden" style={{height: '410px'}}>
+            <div className="navbar-nav w-100 overflow-hidden" style={{height: '200px'}}>
                 {Object.keys(menuData).map((key, i) => (
                     <div className="nav-item dropdown" key={i}>
                     <Link href="#" className="nav-link" data-toggle="dropdown">
                         {menuData[key].category_name} <i className="fa fa-angle-down float-right mt-1" />
                     </Link>
                     {menuData[key].subcategory ? (
-                        <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                        <div className="dropdown-menu position-absolute bg-primary border-0 rounded-0 w-100 m-0">
                         {Object.keys(menuData[key].subcategory).map((sub, j) => (
                             <Link className="dropdown-item" key={j} to={`/shop/${sub}`}>
                             {menuData[key].subcategory[sub].category_name}
